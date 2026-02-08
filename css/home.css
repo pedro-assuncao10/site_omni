@@ -222,9 +222,110 @@ main {
 .flow-item p { color: #666; font-size: 0.8rem; }
 .flow-line { flex-grow: 1; height: 1px; background: #333; margin-top: 22px; }
 
+/* NOVO: CARD COMPARATIVO (TABELA) */
+.card-comparison {
+    grid-column: span 2; /* Ocupa largura total */
+    margin-top: 10px;
+}
+
+.comparison-wrapper {
+    overflow-x: auto; /* Permite rolagem no mobile se a tabela for larga */
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+.comparison-table th {
+    background: #050505;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.feature-col {
+    text-align: left !important;
+    width: 30%;
+    color: #aaa;
+    font-weight: 500;
+}
+
+.omni-col {
+    background: rgba(212, 175, 55, 0.1) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+    color: var(--gold-primary) !important;
+    font-size: 1.1rem !important;
+    position: relative;
+    width: 25%;
+}
+
+.others-col {
+    width: 22.5%;
+    color: #666 !important;
+}
+
+.th-logo img {
+    height: 30px;
+    margin-bottom: 5px;
+    display: block;
+    margin: 0 auto 5px auto;
+}
+
+.comparison-table td {
+    font-size: 1rem;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr td:first-child {
+    text-align: left;
+    color: #ddd;
+    font-weight: 500;
+}
+
+.check {
+    color: #00ff00; /* Verde neon */
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.cross {
+    color: #ff0000; /* Vermelho */
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+
+.partial {
+    color: #FFA500; /* Laranja */
+    font-size: 1.2rem;
+}
+
+/* Coluna Omni destacada */
+.comparison-table td:nth-child(2) {
+    background: rgba(212, 175, 55, 0.03); 
+    border-left: 1px solid #222;
+    border-right: 1px solid #222;
+}
+
 @media (max-width: 900px) {
     .omni-grid-container { grid-template-columns: 1fr; }
-    .card-flow, .card-about { grid-column: span 1; }
+    .card-flow, .card-about, .card-comparison { grid-column: span 1; }
     .flow-steps { flex-direction: column; gap: 30px; }
     .flow-line { display: none; }
     .flow-item { flex-direction: row; gap: 20px; text-align: left; width: 100%; justify-content: flex-start; }

@@ -155,7 +155,7 @@ function initScrollReveal() {
     setTimeout(() => {
         // Seleciona os elementos novos do Grid e CTA também
         const elementsToAnimate = document.querySelectorAll(
-            '.section-title, .plano-card, .omni-card, .tech-item, .hero-content p, .hero-content h1, .cta-content, .tech-header, .faq-item'
+            '.section-title, .plano-card, .omni-card, .tech-item, .hero-content p, .hero-content h1, .cta-content, .tech-header, .faq-item, .comparison-table'
         );
 
         elementsToAnimate.forEach((el) => {
