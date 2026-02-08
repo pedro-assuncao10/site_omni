@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni - Sistemas Inteligentes</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+    <!-- Cabeçalho Global -->
+    <header>
+        <div class="logo-header">
+            <a href="#">
+                <img src="images/logo_omni.png" alt="Omni Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">A Omni</a></li>
+                <li><a href="#planos">Planos</a></li>
+                <li><a href="#tecnologias">Tecnologias</a></li>
+                <li><a href="#contato" class="nav-cta">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        
+        <!-- 1. HERO SECTION (CANVAS) -->
+        <section id="home" class="hero-section">
+            <canvas id="hero-canvas"></canvas>
+            
+            <div class="hero-content">
+                <div class="logo-container">
+                    <img src="images/logo_omni.png" alt="Omni Logo Central" class="hero-logo-large">
+                </div>
+                <h1 class="hero-title">Omni</h1>
+                <p class="hero-subtitle">Sistemas Inteligentes</p>
+            </div>
+        </section>
+
+        <!-- 2. SOBRE A OMNI (GRID ATUALIZADO) -->
+        <section id="sobre" class="section-container">
+            <h2 class="section-title">ECOSSISTEMA OMNI</h2>
+
+            <!-- Container do Grid Novo -->
+            <div class="omni-grid-container">
+                
+                <!-- Card 0: Quem Somos (Novo) -->
+                <div class="omni-card card-about" data-tilt>
+                    <div class="card-header-line">
+                        <h3>Quem somos</h3>
+                    </div>
+                    <p class="about-text">
+                        "Somos uma empresa movida por um grande propósito: entregar sistemas que não apenas funcionem, mas que transformem o seu negócio. Mais do que tecnologia, realizamos sonhos. Fomos criados com a missão de facilitar e automatizar sua vida através da inovação inteligente."
+                    </p>
+                </div>
+                
+                <!-- Card 1: Por que a Omni? -->
+                <div class="omni-card card-why" data-tilt>
+                    <div class="card-header-line">
+                        <h3>Por que a Omni?</h3>
+                    </div>
+                    <div class="why-list">
+                        <div class="why-item">
+                            <i class="fa-solid fa-brain"></i>
+                            <div>
+                                <h4>Pensamos como empresários</h4>
+                                <p>Não criamos só software. Criamos soluções que dão lucro.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <i class="fa-solid fa-bolt"></i>
+                            <div>
+                                <h4>Execução rápida</h4>
+                                <p>Da ideia ao sistema no ar em semanas, não meses.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <div>
+                                <h4>Tudo em um só lugar</h4>
+                                <p>Site, sistema, banco de dados, hospedagem e suporte.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <i class="fa-solid fa-lock"></i>
+                            <div>
+                                <h4>Segurança e estabilidade</h4>
+                                <p>Infraestrutura profissional desde o primeiro dia.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <div>
+                                <h4>Projetado para crescer</h4>
+                                <p>Você começa pequeno e escala sem refazer tudo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: O que fazemos -->
+                <div class="omni-card card-what" data-tilt>
+                    <div class="card-header-line">
+                        <h3>O que fazemos</h3>
+                    </div>
+                    <div class="what-list">
+                        <div class="what-item"><i class="fa-solid fa-check"></i> SaaS</div>
+                        <div class="what-item"><i class="fa-solid fa-check"></i> Sites Profissionais</div>
+                        <div class="what-item"><i class="fa-solid fa-check"></i> Sistemas de Gestão</div>
+                        <div class="what-item"><i class="fa-solid fa-check"></i> Automações</div>
+                        <div class="what-item"><i class="fa-solid fa-check"></i> Suporte e Manutenção</div>
+                        <div class="what-item"><i class="fa-solid fa-check"></i> Integração WhatsApp</div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Fluxo Omni (Full Width) -->
+                <div class="omni-card card-flow" data-tilt>
+                    <div class="card-header-line">
+                        <h3>Fluxo Omni</h3>
+                    </div>
+                    <div class="flow-steps">
+                        <!-- Step 01 -->
+                        <div class="flow-item">
+                            <div class="flow-number">01</div>
+                            <h4>Diagnóstico</h4>
+                            <p>Entendemos seu negócio</p>
+                        </div>
+                        <!-- Separador -->
+                        <div class="flow-line"></div>
+                        <!-- Step 02 -->
+                        <div class="flow-item">
+                            <div class="flow-number">02</div>
+                            <h4>Planejamento</h4>
+                            <p>Desenhamos a solução</p>
+                        </div>
+                        <!-- Separador -->
+                        <div class="flow-line"></div>
+                        <!-- Step 03 -->
+                        <div class="flow-item">
+                            <div class="flow-number">03</div>
+                            <h4>Dev</h4>
+                            <p>Criamos o sistema</p>
+                        </div>
+                        <!-- Separador -->
+                        <div class="flow-line"></div>
+                        <!-- Step 04 -->
+                        <div class="flow-item">
+                            <div class="flow-number">04</div>
+                            <h4>Entrega</h4>
+                            <p>Tudo funcionando</p>
+                        </div>
+                        <!-- Separador -->
+                        <div class="flow-line"></div>
+                        <!-- Step 05 -->
+                        <div class="flow-item">
+                            <div class="flow-number">05</div>
+                            <h4>Suporte</h4>
+                            <p>Continuamos com você</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. PLANOS -->
+        <section id="planos" class="section-container">
+            <h2 class="section-title">Nossos Planos</h2>
+            <div class="planos-grid" id="planos-container"></div>
+        </section>
+
+        <!-- 4. TECNOLOGIAS -->
+        <section id="tecnologias" class="section-container">
+            <div class="tech-header">
+                <h3>Nosso Arsenal Tecnológico</h3>
+                <p>Frameworks modernos para construir o futuro.</p>
+            </div>
+            <div class="tech-grid" id="tecnologias-container"></div>
+        </section>
+
+        <!-- 5. CHAMADA FINAL (CTA) -->
+        <section id="contato" class="cta-section">
+            <div class="cta-content">
+                <h2>Pronto para criar sua plataforma?</h2>
+                <p>Fale com a Omni e transforme sua ideia em realidade hoje mesmo.</p>
+                <a href="#" class="btn-cta-large">Solicitar Proposta <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cta-background-effect"></div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>
+                    &copy; 2024 Omni Sistemas Inteligentes.<br>
+                    Todos os direitos reservados.
+                </p>
+            </div>
+
+            <div class="footer-center">
+                <p>Traga sua ideia de SaaS para a melhor empresa</p>
+            </div>
+
+            <div class="footer-right">
+                <a href="#" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" target="_blank" title="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Externos -->
+    <script src="js/home.js"></script>
+
+    <!-- GTranslate Widget -->
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = {"default_language":"pt","native_language_names":true,"languages":["pt","fr","es","en"],"globe_color":"#66aaff","wrapper_selector":".gtranslate_wrapper","horizontal_position":"left","vertical_position":"bottom","alt_flags":{"pt":"brazil"}}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
+</body>
+</html>
