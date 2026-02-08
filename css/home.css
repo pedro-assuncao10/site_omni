@@ -419,6 +419,70 @@ main {
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
+/* --- FAQ SECTION (NOVO) --- */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #0f0f0f;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question i {
+    color: var(--gold-primary);
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 20px;
+    background: #0a0a0a;
+}
+
+.faq-answer p {
+    color: #ccc;
+    padding-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Estado Ativo do FAQ (controlado via JS) */
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Ajuste se o texto for muito longo */
+}
+
 /* --- CHAMADA FINAL (CTA) --- */
 .cta-section {
     padding: 120px 20px;

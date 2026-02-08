@@ -1,5 +1,5 @@
 // --- home.js ---
-// Contém: Simulação do Banco de Dados + Lógica de Renderização + Scroll Reveal + Canvas + 3D Tilt
+// Contém: Simulação do Banco de Dados + Lógica de Renderização + Scroll Reveal + Canvas + 3D Tilt + FAQ Logic
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Omni System - JS Loaded");
@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. INICIALIZAR EFEITO TILT (3D MOUSE)
     initTiltEffect();
+
+    // 5. INICIALIZAR FAQ
+    initFaq();
 });
 
 
@@ -152,7 +155,7 @@ function initScrollReveal() {
     setTimeout(() => {
         // Seleciona os elementos novos do Grid e CTA também
         const elementsToAnimate = document.querySelectorAll(
-            '.section-title, .plano-card, .omni-card, .tech-item, .hero-content p, .hero-content h1, .cta-content, .tech-header'
+            '.section-title, .plano-card, .omni-card, .tech-item, .hero-content p, .hero-content h1, .cta-content, .tech-header, .faq-item'
         );
 
         elementsToAnimate.forEach((el) => {
@@ -191,6 +194,28 @@ function initTiltEffect() {
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
             card.style.transition = 'transform 0.5s ease'; // Volta suave
+        });
+    });
+}
+
+// === LÓGICA FAQ (ACCORDION) ===
+function initFaq() {
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            const isActive = item.classList.contains('active');
+
+            // Fecha todos os outros
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // Se não estava ativo, abre
+            if (!isActive) {
+                item.classList.add('active');
+            }
         });
     });
 }
