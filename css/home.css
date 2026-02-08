@@ -203,6 +203,18 @@ main {
 .card-about { grid-column: span 2; }
 .about-text { font-style: italic; font-size: 1.15rem; color: #ddd; line-height: 1.8; max-width: 90%; }
 
+/* EFEITO REVEAL NO TEXTO */
+.reveal-on-scroll {
+    color: rgba(255, 255, 255, 0.15); /* Cor base cinza/transparente */
+    background: linear-gradient(to right, #ffffff 50%, rgba(255, 255, 255, 0.15) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0; /* Começa com o cinza */
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-position 0.1s linear; /* Transição suave via JS */
+    display: inline; /* Para o gradiente fluir no texto */
+}
+
 .why-list { display: flex; flex-direction: column; gap: 25px; }
 .why-item { display: flex; align-items: flex-start; gap: 20px; }
 .why-item i { color: var(--gold-primary); font-size: 1.2rem; margin-top: 4px; width: 25px; text-align: center; }

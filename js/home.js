@@ -1,5 +1,5 @@
 // --- home.js ---
-// Contém: Simulação do Banco de Dados + Lógica de Renderização + Scroll Reveal + Canvas + 3D Tilt + FAQ Logic
+// Contém: Simulação do Banco de Dados + Lógica de Renderização + Scroll Reveal + Canvas + 3D Tilt + FAQ Logic + Text Reveal
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Omni System - JS Loaded");
@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. INICIALIZAR FAQ
     initFaq();
+
+    // 6. INICIALIZAR TEXT REVEAL ON SCROLL
+    initTextReveal();
 });
 
 
@@ -155,7 +158,7 @@ function initScrollReveal() {
     setTimeout(() => {
         // Seleciona os elementos novos do Grid e CTA também
         const elementsToAnimate = document.querySelectorAll(
-            '.section-title, .plano-card, .omni-card, .tech-item, .hero-content p, .hero-content h1, .cta-content, .tech-header, .faq-item, .comparison-table'
+            '.section-title, .plano-card, .omni-card, .tech-item, .hero-content p, .hero-content h1, .cta-content, .tech-header, .faq-item, .card-comparison'
         );
 
         elementsToAnimate.forEach((el) => {
@@ -217,6 +220,35 @@ function initFaq() {
                 item.classList.add('active');
             }
         });
+    });
+}
+
+// === LÓGICA TEXT REVEAL ON SCROLL ===
+function initTextReveal() {
+    const textElement = document.querySelector('.reveal-on-scroll');
+    if (!textElement) return;
+
+    window.addEventListener('scroll', () => {
+        const rect = textElement.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Define quando começar e terminar o efeito (em pixels na tela)
+        // Começa quando o elemento entra na parte de baixo (80% da tela)
+        // Termina quando o elemento está mais no topo (20% da tela)
+        const start = windowHeight * 0.8;
+        const end = windowHeight * 0.2;
+        
+        // Calcula progresso baseada na posição do elemento
+        let progress = (start - rect.top) / (start - end);
+        
+        // Limita entre 0 e 1
+        progress = Math.max(0, Math.min(1, progress));
+        
+        // background-position vai de 100% (cinza) para 0% (branco)
+        // Se quiser inverter a direção do gradiente, ajuste aqui
+        const bgPos = 100 - (progress * 100);
+        
+        textElement.style.backgroundPosition = `${bgPos}% 0`;
     });
 }
 
