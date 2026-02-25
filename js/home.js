@@ -29,7 +29,7 @@ const bancoDeDados = {
     planos: [
         {
             categoria: "Start",
-            limite: "R$ 2.000,00", // Novo campo baseado na imagem
+            limite: "R$ 2.000,00",
             preco: "R$400", 
             funcionalidades: [
                 "Dashboard Básico",
@@ -43,7 +43,7 @@ const bancoDeDados = {
         },
         {
             categoria: "Intermediário",
-            limite: "R$ 3.000,00", // Novo campo baseado na imagem
+            limite: "R$ 3.000,00",
             preco: "R$600",
             funcionalidades: [
                 "Dashboard Intermediário",
@@ -58,7 +58,7 @@ const bancoDeDados = {
         },
         {
             categoria: "Premium",
-            limite: "R$ 5.000,00", // Novo campo baseado na imagem
+            limite: "R$ 5.000,00",
             preco: "R$800",
             funcionalidades: [
                 "Dashboard Intermediário",
@@ -90,11 +90,10 @@ const bancoDeDados = {
 
 // === FUNÇÃO DE RENDERIZAÇÃO ===
 function renderizarSite() {
-    
     // --- Renderizar Tecnologias ---
     const techContainer = document.getElementById('tecnologias-container');
     if (techContainer) {
-        techContainer.innerHTML = ''; // Limpa antes de renderizar
+        techContainer.innerHTML = ''; 
         bancoDeDados.tecnologias.forEach(tech => {
             const html = `
                 <div class="tech-item">
@@ -106,12 +105,11 @@ function renderizarSite() {
         });
     }
 
-    // --- Renderizar Planos (ATUALIZADO PARA O NOVO LAYOUT) ---
+    // --- Renderizar Planos ---
     const planosContainer = document.getElementById('planos-container');
     if (planosContainer) {
-        planosContainer.innerHTML = ''; // Limpa antes de renderizar
+        planosContainer.innerHTML = ''; 
         bancoDeDados.planos.forEach(plano => {
-            // Mapeia funcionalidades com ícone de check circle sólido
             const listaHTML = plano.funcionalidades.map(func => `<li><i class="fa-solid fa-circle-check"></i> ${func}</li>`).join('');
             
             const html = `
@@ -156,7 +154,6 @@ function initScrollReveal() {
     }, observerOptions);
 
     setTimeout(() => {
-        // Seleciona os elementos novos do Grid e CTA também
         const elementsToAnimate = document.querySelectorAll(
             '.section-title, .plano-card, .omni-card, .tech-item, .hero-content p, .hero-content h1, .cta-content, .tech-header, .faq-item, .card-comparison'
         );
@@ -170,11 +167,12 @@ function initScrollReveal() {
 
 // === LÓGICA TILT 3D (Efeito Mouse Imersivo) ===
 function initTiltEffect() {
-    // Aplica o efeito nos cards da Omni e nos Planos também
+    // Desativa tilt no mobile para evitar sobreposição nos toques
+    if (window.innerWidth <= 768) return;
+
     const cards = document.querySelectorAll('.omni-card, .plano-card');
 
     cards.forEach(card => {
-        // Inicializa transformação
         card.style.transition = 'transform 0.1s ease-out';
 
         card.addEventListener('mousemove', (e) => {
@@ -182,21 +180,18 @@ function initTiltEffect() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            // Calcular rotação baseada no centro do card
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            // Ajuste a intensidade da rotação aqui (ex: 5 ou 3)
             const rotateX = ((y - centerY) / centerY) * -3; 
             const rotateY = ((x - centerX) / centerX) * 3;  
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
         });
 
-        // Resetar ao sair
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-            card.style.transition = 'transform 0.5s ease'; // Volta suave
+            card.style.transition = 'transform 0.5s ease'; 
         });
     });
 }
@@ -210,12 +205,10 @@ function initFaq() {
             const item = question.parentElement;
             const isActive = item.classList.contains('active');
 
-            // Fecha todos os outros
             document.querySelectorAll('.faq-item').forEach(otherItem => {
                 otherItem.classList.remove('active');
             });
 
-            // Se não estava ativo, abre
             if (!isActive) {
                 item.classList.add('active');
             }
@@ -232,22 +225,13 @@ function initTextReveal() {
         const rect = textElement.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         
-        // Define quando começar e terminar o efeito (em pixels na tela)
-        // Começa quando o elemento entra na parte de baixo (80% da tela)
-        // Termina quando o elemento está mais no topo (20% da tela)
         const start = windowHeight * 0.8;
         const end = windowHeight * 0.2;
         
-        // Calcula progresso baseada na posição do elemento
         let progress = (start - rect.top) / (start - end);
-        
-        // Limita entre 0 e 1
         progress = Math.max(0, Math.min(1, progress));
         
-        // background-position vai de 100% (cinza) para 0% (branco)
-        // Se quiser inverter a direção do gradiente, ajuste aqui
         const bgPos = 100 - (progress * 100);
-        
         textElement.style.backgroundPosition = `${bgPos}% 0`;
     });
 }
@@ -358,7 +342,8 @@ function initHeroCanvas() {
 
         function initParticles() {
             particlesArray = [];
-            const numberOfParticles = 70; 
+            // Menos partículas no mobile melhora a performance e poupa bateria do cliente
+            const numberOfParticles = window.innerWidth < 768 ? 40 : 70; 
             
             for (let i = 0; i < numberOfParticles; i++) {
                 particlesArray.push(new Particle());
