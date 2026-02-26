@@ -568,3 +568,123 @@ footer { background-color: #000; border-top: 1px solid #222; padding: 40px 5%; }
     .planos-grid { gap: 20px; }
     .plano-card { padding: 25px 15px; }
 }
+
+/* =========================================
+   BOTÃO FLUTUANTE WHATSAPP (SVG)
+   ========================================= */
+   .floating-whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 90px; /* Posicionado acima do globo do GTranslate */
+    left: 20px;   /* Mesmo alinhamento esquerdo do GTranslate */
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulse-wa 2s infinite;
+}
+
+/* Dimensionamento do ícone SVG interno */
+.floating-whatsapp svg {
+    width: 35px;
+    height: 35px;
+    fill: #FFF;
+}
+
+.floating-whatsapp:hover {
+    background-color: #20b858;
+    transform: scale(1.1);
+}
+
+/* Animação de pulso para chamar atenção */
+@keyframes pulse-wa {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Ajuste responsivo para telas menores */
+@media (max-width: 480px) {
+    .floating-whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 80px; /* Ajuste fino para mobile */
+        left: 15px;
+    }
+    
+    .floating-whatsapp svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* --- FORMULÁRIO OMNI (GRID LARGO) --- */
+
+.omni-form {
+    max-width: 800px; /* Largura total igual ao resto do site */
+    width: 100%;
+    margin: 40px auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em 2 colunas */
+    gap: 20px;
+    text-align: left;
+}
+
+/* Faz a mensagem e o botão ocuparem a largura total (as 2 colunas) */
+.full-width {
+    grid-column: span 2;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid #333;
+    padding: 18px; /* Aumentei um pouco o padding para ficar mais robusto */
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+    background: #000;
+}
+
+.form-submit-btn {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 20px;
+}
+
+/* RESPONSIVO: No celular, volta a ficar tudo um embaixo do outro */
+@media (max-width: 768px) {
+    .omni-form {
+        grid-template-columns: 1fr; /* Volta para 1 coluna */
+    }
+    .full-width {
+        grid-column: span 1;
+    }
+}
